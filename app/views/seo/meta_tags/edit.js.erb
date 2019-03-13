@@ -1,0 +1,11 @@
+var elem = $(document).find("[data-smt-id='<%= @meta_tag.id %>']");
+var templ_elem = $(elem).closest('div.template').find(".edit-block")
+var css_classes = elem.attr("class");
+elem.replaceWith("<%= j render 'main_meta' %>");
+
+BackendData.set_data('smt', <%= @meta_tag.id %>, 0);
+BackendData.set_sending_data({ac: '<%= params[:ac] %>', cnt: '<%= params[:cnt] %>', id_obj: '<%= params[:id_obj] %>'});
+EditingFunc.buttons.add();
+EditingFunc.load();
+
+$.spinner.create('.editing', true);

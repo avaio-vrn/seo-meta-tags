@@ -1,0 +1,19 @@
+ru:
+  meta_tag: 
+  meta_tags:
+    index:
+      header_h1:
+    new:
+      header_h1:
+    edit:
+      header_h1:
+    update:
+      header_h1:
+  activerecord:
+    attributes:
+      meta_tag:
+        name:
+  helpers:
+    label:
+      meta_tag:
+        name:

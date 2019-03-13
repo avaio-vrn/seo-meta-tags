@@ -1,0 +1,12 @@
+var newContent;
+var ins = $('.template');
+var mode = <%= @meta_tag.mode %>;
+var i = mode + 1;
+var nextElement;
+var insert = $('<%=j render @meta_tag %>');
+
+var elem = $('.js__main_meta[data-meta-mode="<%= @meta_tag.mode %>"]');
+elem.append(insert);
+
+elem.find('.admin-stroke').admin_stroke_enter();
+iconsData.addAndInitIcons('<%= raw j @meta_tag.json_for_icons_js(true, @meta_tag.id).to_json %>', insert, true);

@@ -1,0 +1,9 @@
+var elem = $(document).find("[data-smt-id='<%= @meta_tag.id %>']");
+$(elem).parent().replaceWith("<%=j render @meta_tag %>");
+
+BackendData.set_data('smt', <%= @meta_tag.id %>, 0);
+BackendData.set_sending_data({ac: '<%= params[:ac] %>', cnt: '<%= params[:cnt] %>', id_obj: '<%= params[:id_obj] %>'});
+
+elem = $(document).find("[data-smt-id='<%= @meta_tag.id %>']");
+$(elem).closest('.admin-stroke').admin_stroke_enter();
+iconsData.addAndInitIcons('<%= raw j @meta_tag.json_for_icons_js(true, @meta_tag.id).to_json %>', elem);

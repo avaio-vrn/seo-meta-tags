@@ -1,0 +1,13 @@
+<div class='template admin-stroke' data-meta='<%= meta_tag.mode %>' data-index='<%= meta_tag.id %>'>
+  <%= content_tag :h2, meta_tag.key_name.capitalize, class: 'h2' %>
+  <% if [:title, :keywords, :description].include? meta_tag.key_name.to_sym %>
+    <%= content_tag :p, meta_tag.content_value, class: 'content-editing js__content-editing path-0', data: {'name' => 'smt', 'smt-id' => meta_tag.id } %>
+  <% else %>
+    <% if meta_tag.content_name.blank?  %>
+      <%= meta_tag.tag %> <%= meta_tag.key_name %>='<%= meta_tag.key_value %>'
+    <% else %>
+      <%= meta_tag.tag ? 'link': 'meta' %> <%= meta_tag.key_name %>='<%= meta_tag.key_value %>' <%= meta_tag.content_name %>='<%= meta_tag.content_value %>'
+    <% end%>
+  <% end %>
+  <%= render "admin/editing_buttons", item: meta_tag %>
+</div>
